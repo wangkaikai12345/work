@@ -1,7 +1,10 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -10,9 +13,11 @@
         "coderello/laravel-nova-lang": "^1.0",
         "fideloper/proxy": "^4.0",
         "frowhy/nova-field-quill": "^1.0",
+        "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.6.*",
         "laravel/nova": "*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "wangkai/some-tips": "*"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
@@ -25,6 +30,42 @@
         {
             "type": "path",
             "url": "./nova"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SomeTips"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SomeTips"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SomeTips"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SomeTips"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SomeTips"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SomeTips"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SomeTips"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SomeTips"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SomeTips"
         }
     ],
     "autoload": {
@@ -43,8 +84,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {
