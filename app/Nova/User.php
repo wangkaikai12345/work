@@ -34,6 +34,26 @@ class User extends Resource
     ];
 
     /**
+     * 获取资源可以显示的标签.
+     *
+     * @return string
+     */
+    public static function label()
+    {
+        return __('用户列表');
+    }
+
+    /**
+     * 获取资源可以显示的单标签.
+     *
+     * @return string
+     */
+    public static function singularLabel()
+    {
+        return __('用户');
+    }
+
+    /**
      * Get the fields displayed by the resource.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -104,6 +124,8 @@ class User extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new Actions\SuccessEmail,
+        ];
     }
 }
