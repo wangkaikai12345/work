@@ -1,11 +1,12 @@
 <?php
 
 namespace App;
-
+use Laravel\Nova\Actions\Actionable;
 use Illuminate\Database\Eloquent\Model;
 
 class Work extends Model
 {
+    use Actionable;
 
     public function user()
     {

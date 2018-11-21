@@ -27,13 +27,10 @@ class NewWorks extends Value
     public function ranges()
     {
         return [
-            1 => '1 Day',
-            30 => '30 Days',
-            60 => '60 Days',
-            365 => '365 Days',
-            'MTD' => 'Month To Date',
-            'QTD' => 'Quarter To Date',
-            'YTD' => 'Year To Date',
+            1 => '最近1天',
+            30 => '最近30天',
+            60 => '最近60天',
+            365 => '最近365天',
         ];
     }
 
@@ -55,5 +52,10 @@ class NewWorks extends Value
     public function uriKey()
     {
         return 'new-works';
+    }
+
+    public function name()
+    {
+        return __('新增工单');
     }
 }

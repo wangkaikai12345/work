@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Nova\Metrics\NewUsers;
 use App\Nova\Metrics\NewWorks;
+use App\Nova\Metrics\WorksCount;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Cards\Help;
 use Illuminate\Support\Facades\Gate;
@@ -60,8 +61,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
 //            new Help,
-            new NewUsers,
-            new NewWorks,
+            (new NewUsers)->width('1/2'),
+            (new NewWorks)->width('1/2'),
+            (new WorksCount)->width('full'),
         ];
     }
 

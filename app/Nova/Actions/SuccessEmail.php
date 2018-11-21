@@ -40,13 +40,8 @@ class SuccessEmail extends Action
         //
         foreach ($models as $model) {
 
-            if ($model->status == 'allot') {
-                Mail::to($model->user)->send(new Success($model->user, $model->title));
-                $model->status = 'confirm';
-                $model->save();
-            }
+            dispatch(new \App\Jobs\SuccessEmail($model));
 
-            $this->markAsFinished($model);
         }
 
         return Action::message('发送成功');

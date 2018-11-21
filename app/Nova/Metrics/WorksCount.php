@@ -2,11 +2,11 @@
 
 namespace App\Nova\Metrics;
 
-use App\User;
+use App\Work;
 use Illuminate\Http\Request;
-use Laravel\Nova\Metrics\Value;
+use Laravel\Nova\Metrics\Partition;
 
-class NewUsers extends Value
+class WorksCount extends Partition
 {
     /**
      * Calculate the value of the metric.
@@ -16,22 +16,12 @@ class NewUsers extends Value
      */
     public function calculate(Request $request)
     {
-        return $this->count($request, User::class);
-    }
-
-    /**
-     * Get the ranges available for the metric.
-     *
-     * @return array
-     */
-    public function ranges()
-    {
-        return [
-            1 => '最近1天',
-            30 => '最近30天',
-            60 => '最近60天',
-            365 => '最近365天',
-        ];
+        return $this->result([
+            '未解决' => Work::whereStatus('unsolved')->count(),
+            '已分配' => Work::whereStatus('allot')->count(),
+            '待确认' => Work::whereStatus('confirm')->count(),
+            '已解决' => Work::whereStatus('complete')->count(),
+        ]);
     }
 
     /**
@@ -51,11 +41,11 @@ class NewUsers extends Value
      */
     public function uriKey()
     {
-        return 'new-users';
+        return 'works-count';
     }
 
     public function name()
     {
-        return __('新增用户');
+        return __('工单统计');
     }
 }
