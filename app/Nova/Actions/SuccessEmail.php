@@ -39,7 +39,12 @@ class SuccessEmail extends Action
     {
         //
         foreach ($models as $model) {
-            Mail::to($model)->send(new Success($model, $fields->title));
+
+            if ($model->status == 'allot') {
+                Mail::to($model->user)->send(new Success($model->user, $fields->title));
+                $model->status = 'confirm';
+                $model->save();
+            }
 
             $this->markAsFinished($model);
         }

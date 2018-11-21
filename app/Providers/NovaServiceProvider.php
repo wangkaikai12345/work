@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Nova\Metrics\NewUsers;
+use App\Nova\Metrics\NewWorks;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Cards\Help;
 use Illuminate\Support\Facades\Gate;
@@ -57,7 +59,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+//            new Help,
+            new NewUsers,
+            new NewWorks,
         ];
     }
 
@@ -69,7 +73,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools()
     {
         return [
-            new \Beyondcode\TinkerTool\Tinker(),
+//            new \Beyondcode\TinkerTool\Tinker(),
             new SomeTips,
         ];
     }

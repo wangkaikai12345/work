@@ -6,17 +6,16 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class User extends Resource
+class Love extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\\User';
+    public static $model = 'App\Love';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -31,7 +30,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id','name'
     ];
 
     /**
@@ -41,7 +40,7 @@ class User extends Resource
      */
     public static function label()
     {
-        return __('用户列表');
+        return __('技术人员');
     }
 
     /**
@@ -51,7 +50,7 @@ class User extends Resource
      */
     public static function singularLabel()
     {
-        return __('用户');
+        return __('技术');
     }
 
     /**
@@ -65,22 +64,11 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Gravatar::make(),
-
-            Text::make('Name')
-                ->sortable()
+            Text::make(__('昵称'),'name')
                 ->rules('required', 'max:255'),
 
-            Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
-
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:6')
-                ->updateRules('nullable', 'string', 'min:6'),
+            Text::make(__('头衔'),'title')
+                ->rules('max:255'),
 
             HasMany::make(__('工单'), 'works', Work::class)
         ];
@@ -127,8 +115,6 @@ class User extends Resource
      */
     public function actions(Request $request)
     {
-        return [
-//            new Actions\SuccessEmail,
-        ];
+        return [];
     }
 }

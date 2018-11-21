@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "462ff1361cf5a3898821ecb1b0e6f86d",
+    "content-hash": "b4d9834214527b1b700f4016fb9a2859",
     "packages": [
         {
             "name": "beyondcode/nova-tinker-tool",
@@ -824,6 +824,56 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "inspheric/nova-indicator-field",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/inspheric/nova-indicator-field.git",
+                "reference": "782d44438a5c14837c8b8abb8472dda8455962eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/inspheric/nova-indicator-field/zipball/782d44438a5c14837c8b8abb8472dda8455962eb",
+                "reference": "782d44438a5c14837c8b8abb8472dda8455962eb",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Inspheric\\Fields\\IndicatorFieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Inspheric\\Fields\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova indicator field.",
+            "keywords": [
+                "field",
+                "indicator",
+                "laravel",
+                "nova",
+                "status"
+            ],
+            "time": "2018-09-02T21:28:51+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
