@@ -669,7 +669,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("heading", { staticClass: "mb-6" }, [_vm._v("Some Tips")]),
+      _c("heading", { staticClass: "mb-6" }, [_vm._v("teach you")]),
       _vm._v(" "),
       _c(
         "card",

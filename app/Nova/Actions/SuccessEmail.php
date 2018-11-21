@@ -41,7 +41,7 @@ class SuccessEmail extends Action
         foreach ($models as $model) {
 
             if ($model->status == 'allot') {
-                Mail::to($model->user)->send(new Success($model->user, $fields->title));
+                Mail::to($model->user)->send(new Success($model->user, $model->title));
                 $model->status = 'confirm';
                 $model->save();
             }
@@ -60,9 +60,8 @@ class SuccessEmail extends Action
     public function fields()
     {
         return [
-            Text::make(__('工单问题'),'title')->rules('required'),
+//            Text::make(__('工单问题'),'title')->rules('required'),
         ];
     }
-
 
 }

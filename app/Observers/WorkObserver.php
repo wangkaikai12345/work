@@ -14,5 +14,11 @@ class WorkObserver
         $work->status = 'unsolved';
     }
 
+    public function updating(Work $work)
+    {
+        if ($work->love_id && $work->status == 'unsolved') {
+            $work->status = 'allot';
+        }
+    }
 
 }
