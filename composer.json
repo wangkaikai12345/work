@@ -13,6 +13,7 @@
         "coderello/laravel-nova-lang": "^1.0",
         "fideloper/proxy": "^4.0",
         "frowhy/nova-field-quill": "^1.0",
+        "gregoriohc/laravel-nova-theme-responsive": "^0.6.1",
         "guzzlehttp/guzzle": "^6.3",
         "inspheric/nova-indicator-field": "^1.2",
         "laravel/framework": "5.6.*",
