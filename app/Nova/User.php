@@ -65,13 +65,11 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Gravatar::make(),
-
-            Text::make('Name')
+            Text::make(__('用户名'),'name')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Text::make('Email')
+            Text::make(__('邮箱'),'email')
                 ->sortable()
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email')

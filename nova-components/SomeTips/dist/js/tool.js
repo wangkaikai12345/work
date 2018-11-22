@@ -169,7 +169,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
 
 // exports
 
@@ -651,11 +651,83 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        //
-    }
+  //    created() {
+  //        axios.get('/nova-vendor/some-tips/endpoint')
+  //             .then(response => {
+  //
+  //                this.from = response.data
+  //             })
+  //    },
+  //    data(){
+  //        return {
+  //            from:'www.baidu.com'
+  //        }
+  //    }
 });
 
 /***/ }),
@@ -669,62 +741,270 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("heading", { staticClass: "mb-6" }, [_vm._v("teach you")]),
+      _c("heading", { staticClass: "mb-6" }, [_vm._v("提交工单使用方法")]),
       _vm._v(" "),
-      _c(
-        "card",
-        {
-          staticClass: "bg-90 flex flex-col items-center justify-center",
-          staticStyle: { "min-height": "300px" }
-        },
-        [
+      _c("card", { staticClass: "bg-90 flex flex-col" }, [
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white" }, [
+          _vm._v("\n            1，进入系统，侧边栏选择"),
           _c(
-            "svg",
+            "code",
             {
-              staticClass: "spin fill-80 mb-6",
-              attrs: {
-                width: "69",
-                height: "72",
-                viewBox: "0 0 23 24",
-                xmlns: "http://www.w3.org/2000/svg"
-              }
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
             },
-            [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M20.12 20.455A12.184 12.184 0 0 1 11.5 24a12.18 12.18 0 0 1-9.333-4.319c4.772 3.933 11.88 3.687 16.36-.738a7.571 7.571 0 0 0 0-10.8c-3.018-2.982-7.912-2.982-10.931 0a3.245 3.245 0 0 0 0 4.628 3.342 3.342 0 0 0 4.685 0 1.114 1.114 0 0 1 1.561 0 1.082 1.082 0 0 1 0 1.543 5.57 5.57 0 0 1-7.808 0 5.408 5.408 0 0 1 0-7.714c3.881-3.834 10.174-3.834 14.055 0a9.734 9.734 0 0 1 .03 13.855zM4.472 5.057a7.571 7.571 0 0 0 0 10.8c3.018 2.982 7.912 2.982 10.931 0a3.245 3.245 0 0 0 0-4.628 3.342 3.342 0 0 0-4.685 0 1.114 1.114 0 0 1-1.561 0 1.082 1.082 0 0 1 0-1.543 5.57 5.57 0 0 1 7.808 0 5.408 5.408 0 0 1 0 7.714c-3.881 3.834-10.174 3.834-14.055 0a9.734 9.734 0 0 1-.015-13.87C5.096 1.35 8.138 0 11.5 0c3.75 0 7.105 1.68 9.333 4.319C16.06.386 8.953.632 4.473 5.057z",
-                  "fill-rule": "evenodd"
-                }
-              })
-            ]
+            [_vm._v("工单列表")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white" }, [
+          _vm._v("\n            2，点击"),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("新建工单")]
+          ),
+          _vm._v(",新建表单页面\n        ")
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white" }, [
+          _vm._v("\n            3，工单表单\n            "),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单类别")]
+          ),
+          _vm._v("\n                必填项，工单的类型。\n            "),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单系统")]
+          ),
+          _vm._v("\n                必填项，工单所属的系统。\n            "),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单程度")]
+          ),
+          _vm._v(
+            "\n                工单要解决的排期，高,中,低。\n            "
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单标题")]
+          ),
+          _vm._v(
+            "\n                必填项，工单解决之后，将以标题发送通知邮件到您的邮箱。\n            "
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单描述")]
+          ),
+          _vm._v(
+            "\n                必填项，工单问题的简要描述，有问题的账号（校区、姓名、电话），学员问题提供学员信息（校区、姓名、电话、班期）\n            "
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单内容")]
+          ),
+          _vm._v(
+            "\n                必填项，工单问题的主体，重要的是截图，尽量最详细，以便帮您快速解决问题\n            "
+          ),
+          _c("br"),
+          _c("br")
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white" }, [
+          _vm._v("\n            4，工单查询和操作\n            "),
+          _c("br"),
+          _c("br"),
+          _vm._v("\n            点击侧边栏"),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("用户列表")]
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\n            搜索自己的用户名或者邮箱，快速定位到自己，点击右侧小眼睛，查看详情，会展示您提交的工单，通过查看状态，了解工单处理信息。\n            "
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\n            如果您收到工单处理完成邮件，请更新待确认状态的工单为已解决。\n        "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("heading", { staticClass: "mb-6" }, [_vm._v("解决工单使用方法")]),
+      _vm._v(" "),
+      _c("card", { staticClass: "bg-90 flex flex-col" }, [
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-white-50% text-lg" }, [
+          _vm._v("\n            1,点击"),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单列表")]
+          ),
+          _vm._v(
+            ",\n            右侧筛选，选择未解决的工单，编辑分配技术人员\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-white-50% text-lg" }, [
+          _vm._v("\n            2,点击"),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("技术人员")]
+          ),
+          _vm._v(
+            ",\n            右侧小眼睛，查看技术人员的详情，下面会展示分配到你的工单，查看工单详情，解决问题\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-white-50% text-lg" }, [
+          _vm._v(
+            "\n            3,工单解决，选择工单，右侧action执行动作SuccessEmail,发送工单解决成功邮件\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-white-50% text-lg" }, [
+          _vm._v("\n            4,管理员可增删改查\n            "),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("技术人员")]
           ),
           _vm._v(" "),
           _c(
-            "h1",
-            { staticClass: "text-white text-4xl text-90 font-light mb-6" },
-            [_vm._v("\n            We're in a black hole.\n        ")]
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单系统")]
           ),
           _vm._v(" "),
-          _c("p", { staticClass: "text-white-50% text-lg" }, [
-            _vm._v(
-              "\n            You can edit this tool's component at:\n            "
-            ),
-            _c(
-              "code",
-              {
-                staticClass:
-                  "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
-              },
-              [
-                _vm._v(
-                  "/nova-components/SomeTips/resources/js/components/Tool.vue"
-                )
-              ]
-            )
-          ])
-        ]
-      )
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单类别")]
+          ),
+          _vm._v(" "),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("用户列表")]
+          ),
+          _vm._v(" "),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单列表")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-white-50% text-lg" }, [
+          _vm._v(
+            "\n            5,管理面板可查看新增用户，新增工单，工单状态比例。\n        "
+          )
+        ])
+      ])
     ],
     1
   )
