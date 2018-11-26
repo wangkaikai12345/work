@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Love extends Model
 {
 
-    use SoftDeletes;
+//    use SoftDeletes;
 
     public function works()
     {

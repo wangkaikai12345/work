@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Comment;
 use App\User;
+use Illuminate\Support\Facades\Log;
 
 class CommentObserver
 {
@@ -24,96 +25,31 @@ class CommentObserver
      * @param  User $user
      * @return void
      */
-    public function created(User $user)
+    public function created(Comment $comment)
     {
+        if (auth()->id() === 1) {
+            // 发送邮件
+            dispatch(new \App\Jobs\CommentEmail($comment));
+
+        } else {
+
+
+            // 发送钉钉提醒
+            $webhook = "https://oapi.dingtalk.com/robot/send?access_token=e0b2b28185c50a947c0f7af8b72117f5088dfd351737226862e879447dc3b20e";
+            $message="我就是我, 是不一样的烟火";
+            $data = array ('msgtype' => 'text','text' => array ('content' => $message));
+
+            $client = new \GuzzleHttp\Client();
+            $res = $client->request('POST', $webhook, [
+                'json' => $data
+            ]);
+
+            Log::info('fasongchengg');
+            Log::info(json_encode($res));
+        }
+
+
 
     }
 
-    /**
-     * 监听数据即将更新的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function updating(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据更新后的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function updated(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据即将保存的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function saving(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据保存后的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function saved(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据即将删除的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function deleting(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据删除后的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function deleted(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据即将从软删除状态恢复的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function restoring(User $user)
-    {
-
-    }
-
-    /**
-     * 监听数据从软删除状态恢复后的事件。
-     *
-     * @param  User $user
-     * @return void
-     */
-    public function restored(User $user)
-    {
-
-    }
 }

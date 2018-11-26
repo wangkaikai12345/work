@@ -2,14 +2,13 @@
 
 namespace App\Policies;
 
+use App\Comment;
 use App\User;
-use App\Work;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class WorkPolicy
+class CommentPolicy
 {
     use HandlesAuthorization;
-
 
     /**
      * Determine whether the user can view the work.
@@ -18,13 +17,14 @@ class WorkPolicy
      * @param  \App\Work  $work
      * @return mixed
      */
-    public function view(User $user, Work $work)
+    public function view(User $user, Comment $comment)
     {
-        if (auth()->id() === 1) {
-            return true;
-        }
-
-        return $work->user_id === auth()->id();
+//        if (auth()->id() === 1) {
+//            return true;
+//        }
+//
+//        return $comment->user_id === auth()->id();
+        return true;
     }
 
     /**
@@ -46,12 +46,9 @@ class WorkPolicy
      * @param  \App\Work  $work
      * @return mixed
      */
-    public function update(User $user, Work $work)
+    public function update(User $user, Comment $comment)
     {
-        if ($user->id === 1) {
-            return true;
-        }
-        return $user->id === $work->user_id;
+        return $comment->user_id === auth()->id();
     }
 
     /**
@@ -61,7 +58,7 @@ class WorkPolicy
      * @param  \App\Work  $work
      * @return mixed
      */
-    public function delete(User $user, Work $work)
+    public function delete(User $user, Comment $comment)
     {
         //
         return false;
@@ -74,10 +71,10 @@ class WorkPolicy
      * @param  \App\Work  $work
      * @return mixed
      */
-    public function restore(User $user, Work $work)
+    public function restore(User $user, Comment $comment)
     {
         //
-        return $user->id === 1;
+        return $comment->user_id === auth()->id();
     }
 
     /**
@@ -87,7 +84,7 @@ class WorkPolicy
      * @param  \App\Work  $work
      * @return mixed
      */
-    public function forceDelete(User $user, Work $work)
+    public function forceDelete(User $user, Comment $comment)
     {
         //
         return false;

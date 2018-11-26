@@ -34,6 +34,21 @@ class Comment extends Resource
     ];
 
     /**
+     *  为给定的资源构建一个“索引”查询。
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if (auth()->id() === 1) {
+            return $query;
+        }
+        return $query->where('work_id', auth()->user()->works->pluck('id')->toArray());
+    }
+
+    /**
      * 获取资源可以显示的标签.
      *
      * @return string
@@ -71,11 +86,10 @@ class Comment extends Resource
                 ->searchable(),
 
             BelongsTo::make(__('工单'), 'work', Work::class)
-                ->rules('required')->searchable(),
+                ->rules('required'),
 
             NovaFieldQuill::make(__('评论内容'),'content')
-                ->rules('required')
-                ->hideFromIndex(),
+                ->rules('required'),
         ];
     }
 

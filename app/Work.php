@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Work extends Model
 {
-    use Actionable;
+//    use Actionable;
 
     public function user()
     {

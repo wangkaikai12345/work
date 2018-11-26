@@ -3,30 +3,16 @@
 namespace App\Nova\Actions;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Support\Facades\Mail;
 use Laravel\Nova\Actions\Action;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Fields\ActionFields;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Mail\Success;
-use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\Text;
 
-class SuccessEmail extends Action
+class WorkComplete extends Action
 {
     use InteractsWithQueue, Queueable, SerializesModels;
-
-    /**
-     * 获取动作显示的名称。
-     *
-     * @return string
-     */
-//    public function name()
-//    {
-//        return __('问题解决邮件通知');
-//    }
 
     /**
      * Perform the action on the given models.
@@ -37,13 +23,12 @@ class SuccessEmail extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        //
         foreach ($models as $model) {
-
-            dispatch(new \App\Jobs\SuccessEmail($model));
+            $model->status = 'complete';
+            $model->save();
         }
 
-        return Action::message('发送成功');
+        return Action::message('操作成功');
     }
 
     /**
@@ -53,9 +38,6 @@ class SuccessEmail extends Action
      */
     public function fields()
     {
-        return [
-//            Text::make(__('工单问题'),'title')->rules('required'),
-        ];
+        return [];
     }
-
 }

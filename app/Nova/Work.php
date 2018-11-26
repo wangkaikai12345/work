@@ -2,7 +2,7 @@
 
 namespace App\Nova;
 
-use App\Nova\Filters\UserOwen;
+use App\Nova\Actions\WorkComplete;
 use Frowhy\NovaFieldQuill\NovaFieldQuill;
 use Inspheric\Fields\Indicator;
 use Laravel\Nova\Fields\BelongsTo;
@@ -30,7 +30,7 @@ class Work extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -38,7 +38,7 @@ class Work extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id','title'
     ];
 
     /**
@@ -59,6 +59,26 @@ class Work extends Resource
     public static function singularLabel()
     {
         return __('工单');
+    }
+
+    /**
+     *  为给定的资源构建一个“索引”查询。
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if (auth()->id() === 1) {
+            return $query;
+        }
+        return $query->where('user_id', auth()->id());
+    }
+
+    public static function relatableQuery(NovaRequest $request, $query)
+    {
+        return $query->where('user_id', auth()->id());
     }
 
     /**
@@ -86,8 +106,7 @@ class Work extends Resource
                 ->rules('required'),
 
             BelongsTo::make(__('技术处理'), 'love', Love::class)
-                ->hideWhenCreating()
-                ->searchable(),
+                ->hideWhenCreating(),
 
             Indicator::make(__('工单状态'), 'status')
                 ->labels([
@@ -95,6 +114,11 @@ class Work extends Resource
                     'allot' => '已分配',
                     'confirm' => '待确认',
                     'complete' => '已完成',
+                ])->colors([
+                    'unsolved' => 'red',
+                    'allot' => 'grey',
+                    'confirm' => 'blue',
+                    'complete' => 'green',
                 ]),
 
             Select::make(__('工单状态'), 'status')->options([
@@ -107,17 +131,21 @@ class Work extends Resource
                 ->hideFromDetail(),
 
             Select::make(__('工单程度'), 'level')->options([
-                'low' => '不急',
-                'middle' => '平常',
-                'high' => '紧急',
+                'low' => '正常',
+                'middle' => '紧急',
+                'high' => '非常紧急',
             ])  ->hideFromIndex()
                 ->hideFromDetail(),
 
             Indicator::make(__('工单程度'), 'level')
                 ->labels([
-                    'low' => '不急',
-                    'middle' => '平常',
-                    'high' => '紧急',
+                    'low' => '正常',
+                    'middle' => '紧急',
+                    'high' => '非常紧急',
+                ])->colors([
+                    'low' => 'green',
+                    'middle' => 'orange',
+                    'high' => 'red',
                 ]),
 
             NovaFieldQuill::make(__('工单内容'),'content')
@@ -147,7 +175,6 @@ class Work extends Resource
     public function filters(Request $request)
     {
         return [
-            new UserOwen,
             new Filters\WorkLevel,
             new Filters\WorkStatus,
         ];
@@ -173,7 +200,10 @@ class Work extends Resource
     public function actions(Request $request)
     {
         return [
+            (new WorkComplete),
             (new Actions\SuccessEmail)->canSee(function () {
+                return auth()->id() === 1;
+            })->canRun(function () {
                 return auth()->id() === 1;
             }),
         ];

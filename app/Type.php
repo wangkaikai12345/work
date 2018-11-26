@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Type extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
 
     //
     public function works()
