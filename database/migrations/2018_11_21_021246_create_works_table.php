@@ -20,7 +20,6 @@ class CreateWorksTable extends Migration
             $table->integer('love_id')->default(0)->comment('处理人id');
             $table->integer('system_id')->comment('系统id');
             $table->string('title',255)->comment('工单标题');
-            $table->text('description')->comment('工单描述');
             $table->text('content')->comment('工单内容');
             $table->enum('status', ['unsolved', 'allot', 'confirm', 'complete'])->comment('状态');
             $table->enum('level', ['low', 'middle', 'high'])->comment('级别');

@@ -2,9 +2,11 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\UserOwen;
 use Frowhy\NovaFieldQuill\NovaFieldQuill;
 use Inspheric\Fields\Indicator;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Select;
@@ -70,6 +72,13 @@ class Work extends Resource
         return [
             ID::make()->sortable(),
 
+            Text::make(__('工单标题'),'title')
+                ->rules('required', 'max:255'),
+
+            BelongsTo::make(__('提交人'), 'user', User::class)
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
+
             BelongsTo::make(__('工单类别'), 'type', Type::class)
                 ->rules('required'),
 
@@ -111,19 +120,10 @@ class Work extends Resource
                     'high' => '紧急',
                 ]),
 
-            Text::make(__('工单标题'),'title')
-                ->rules('required', 'max:255'),
-
-            BelongsTo::make(__('提交人'), 'user', User::class)
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
-
-            Trix::make(__('工单描述'),'description')
-                ->rules('required')
-                ->hideFromIndex(),
-
             NovaFieldQuill::make(__('工单内容'),'content')
                 ->hideFromIndex(),
+
+            HasMany::make(__('工单评论'), 'comments', Comment::class)
         ];
     }
 
@@ -147,8 +147,9 @@ class Work extends Resource
     public function filters(Request $request)
     {
         return [
+            new UserOwen,
             new Filters\WorkLevel,
-            new Filters\WorkStatus
+            new Filters\WorkStatus,
         ];
     }
 

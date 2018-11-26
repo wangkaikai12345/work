@@ -20,7 +20,11 @@ class WorkPolicy
      */
     public function view(User $user, Work $work)
     {
-        return true;
+        if (auth()->id() === 1) {
+            return true;
+        }
+
+        return $work->user_id === auth()->id();
     }
 
     /**
@@ -44,9 +48,7 @@ class WorkPolicy
      */
     public function update(User $user, Work $work)
     {
-        //
-        if ($user->id === 1)  return true;
-        return $work->user_id === $user->id;
+        return $user->id === 1;
     }
 
     /**
@@ -59,7 +61,7 @@ class WorkPolicy
     public function delete(User $user, Work $work)
     {
         //
-        return $user->id === 1;
+        return false;
     }
 
     /**
@@ -85,6 +87,6 @@ class WorkPolicy
     public function forceDelete(User $user, Work $work)
     {
         //
-        return $user->id === 1;
+        return false;
     }
 }

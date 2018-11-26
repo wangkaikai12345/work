@@ -27,4 +27,9 @@ class Work extends Model
     {
         return $this->belongsTo(Love::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
