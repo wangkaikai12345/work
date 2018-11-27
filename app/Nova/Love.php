@@ -67,7 +67,7 @@ class Love extends Resource
             Text::make(__('昵称'),'name')
                 ->rules('required', 'max:255'),
 
-            Text::make(__('头衔'),'title')
+            Text::make(__('联系电话'),'phone')
                 ->rules('max:255'),
 
             HasMany::make(__('工单'), 'works', Work::class)

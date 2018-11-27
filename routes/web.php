@@ -11,7 +11,15 @@
 |
 */
 
+
+//单点登录授权访问入口
+Route::get('/oauth/redirect', 'OAuthController@redirect');
+//授权回调地址
+Route::get('/oauth/callback', 'OAuthController@callback');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 

@@ -36,7 +36,7 @@ class WorkPolicy
     public function create(User $user)
     {
         //
-        return true;
+        return auth()->user()->email;
     }
 
     /**

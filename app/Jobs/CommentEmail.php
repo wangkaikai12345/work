@@ -20,6 +20,16 @@ class CommentEmail implements ShouldQueue
     private $comment;
 
     /**
+     * 定义任务超时时间
+     *
+     * @return \DateTime
+     */
+    public function retryUntil()
+    {
+        return now()->addSeconds(5);
+    }
+
+    /**
      * Create a new job instance.
      *
      * @return void

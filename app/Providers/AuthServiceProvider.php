@@ -31,7 +31,7 @@ class AuthServiceProvider extends ServiceProvider
          System::class => SystemPolicy::class,
          Love::class => LovePolicy::class,
          User::class => UserPolicy::class,
-//        Comment::class => CommentPolicy::class,
+         Comment::class => CommentPolicy::class,
     ];
 
     /**

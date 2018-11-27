@@ -78,6 +78,10 @@ class Work extends Resource
 
     public static function relatableQuery(NovaRequest $request, $query)
     {
+        if (auth()->id() === 1) {
+            return $query;
+        }
+
         return $query->where('user_id', auth()->id());
     }
 

@@ -32,23 +32,9 @@ class CommentObserver
             dispatch(new \App\Jobs\CommentEmail($comment));
 
         } else {
-
-
             // 发送钉钉提醒
-            $webhook = "https://oapi.dingtalk.com/robot/send?access_token=e0b2b28185c50a947c0f7af8b72117f5088dfd351737226862e879447dc3b20e";
-            $message="我就是我, 是不一样的烟火";
-            $data = array ('msgtype' => 'text','text' => array ('content' => $message));
-
-            $client = new \GuzzleHttp\Client();
-            $res = $client->request('POST', $webhook, [
-                'json' => $data
-            ]);
-
-            Log::info('fasongchengg');
-            Log::info(json_encode($res));
+            dispatch(new \App\Jobs\UserComment($comment))->onQueue('comment');
         }
-
-
 
     }
 

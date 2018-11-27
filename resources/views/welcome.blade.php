@@ -67,13 +67,13 @@
     <body>
         <div class="flex-center position-ref full-height">
 
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/admin') }}">后台管理</a>
-                    @else
-                        <a href="{{ url('/admin') }}">登录</a>
-                    @endauth
-                </div>
+                {{--<div class="top-right links">--}}
+                    {{--@auth--}}
+                        {{--<a href="{{ url('/admin') }}">后台管理</a>--}}
+                    {{--@else--}}
+                        {{--<a href="{{ url('/admin') }}">登录</a>--}}
+                    {{--@endauth--}}
+                {{--</div>--}}
 
 
             <div class="content">

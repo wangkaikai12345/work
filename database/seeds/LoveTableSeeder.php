@@ -14,10 +14,10 @@ class LoveTableSeeder extends Seeder
     {
         DB::table('love')->insert([[
             'name' => '孙晓东',
-            'title' => '主管'
+            'phone' => '15830715551'
         ],[
             'name' => '刘万涛',
-            'title' => '主管'
+            'phone' => '13521760670'
         ]]);
     }
 }

@@ -169,7 +169,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
 
 // exports
 
@@ -714,6 +714,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   //    created() {
@@ -748,14 +754,17 @@ var render = function() {
         _c("br"),
         _vm._v(" "),
         _c("p", { staticClass: "text-lg text-white" }, [
-          _vm._v("\n            1，进入系统，侧边栏选择"),
+          _vm._v("\n            1，进入系统，点击"),
           _c(
             "code",
             {
               staticClass:
                 "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
             },
-            [_vm._v("工单列表")]
+            [_vm._v("用户列表")]
+          ),
+          _vm._v(
+            "，编辑完善邮箱信息！刷新页面！\n            （注意：如果您不完善邮箱信息，工单无法新建！邮箱用来接收工单处理实时信息！）\n        "
           )
         ]),
         _vm._v(" "),
@@ -763,7 +772,16 @@ var render = function() {
         _c("br"),
         _vm._v(" "),
         _c("p", { staticClass: "text-lg text-white" }, [
-          _vm._v("\n            2，点击"),
+          _vm._v("\n            2，侧边栏选择"),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单列表")]
+          ),
+          _vm._v("\n            点击"),
           _c(
             "code",
             {
@@ -816,7 +834,7 @@ var render = function() {
             [_vm._v("工单程度")]
           ),
           _vm._v(
-            "\n                工单要解决的排期，高,中,低。\n            "
+            "\n                工单要解决的排期，正常，紧急，非常紧急。\n            "
           ),
           _c("br"),
           _c("br"),
@@ -830,21 +848,7 @@ var render = function() {
             [_vm._v("工单标题")]
           ),
           _vm._v(
-            "\n                必填项，工单解决之后，将以标题发送通知邮件到您的邮箱。\n            "
-          ),
-          _c("br"),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "code",
-            {
-              staticClass:
-                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
-            },
-            [_vm._v("工单描述")]
-          ),
-          _vm._v(
-            "\n                必填项，工单问题的简要描述，有问题的账号（校区、姓名、电话），学员问题提供学员信息（校区、姓名、电话、班期）\n            "
+            "\n                必填项，技术管理人员对工单的回复，以及工单解决之后，将以标题为标识发送通知邮件到您的邮箱。\n            "
           ),
           _c("br"),
           _c("br"),
@@ -858,10 +862,8 @@ var render = function() {
             [_vm._v("工单内容")]
           ),
           _vm._v(
-            "\n                必填项，工单问题的主体，重要的是截图，尽量最详细，以便帮您快速解决问题\n            "
-          ),
-          _c("br"),
-          _c("br")
+            "\n                必填项，工单问题的主体，工单问题的简要描述，有问题的账号（校区、姓名、电话），学员问题提供学员信息（校区、姓名、电话、班期），重要的是截图！尽量最详细，以便帮您快速解决问题\n        "
+          )
         ]),
         _vm._v(" "),
         _c("br"),
@@ -871,25 +873,49 @@ var render = function() {
           _vm._v("\n            4，工单查询和操作\n            "),
           _c("br"),
           _c("br"),
-          _vm._v("\n            点击侧边栏"),
+          _vm._v("\n            点击"),
           _c(
             "code",
             {
               staticClass:
                 "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
             },
-            [_vm._v("用户列表")]
+            [_vm._v("工单列表")]
           ),
           _vm._v(" "),
           _c("br"),
           _c("br"),
           _vm._v(
-            "\n            搜索自己的用户名或者邮箱，快速定位到自己，点击右侧小眼睛，查看详情，会展示您提交的工单，通过查看状态，了解工单处理信息。\n            "
+            "\n            点击右侧小眼睛，查看详情，会展示您提交的工单，下面会展示工单下的评论，技术人员的回复和您的描述，用来了解工单处理信息。\n            "
           ),
           _c("br"),
           _c("br"),
           _vm._v(
-            "\n            如果您收到工单处理完成邮件，请更新待确认状态的工单为已解决。\n        "
+            "\n            如果的问题已经解决，选中工单，操作 Work Complete。\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-lg text-white" }, [
+          _vm._v("\n            5，工单问题解决\n            "),
+          _c("br"),
+          _c("br"),
+          _vm._v("\n            点击"),
+          _c(
+            "code",
+            {
+              staticClass:
+                "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
+            },
+            [_vm._v("工单列表")]
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _c("br"),
+          _vm._v(
+            "\n            如果的问题已经解决，选中工单，操作 Work Complete,工单完成！\n        "
           )
         ])
       ]),
@@ -932,7 +958,7 @@ var render = function() {
             [_vm._v("技术人员")]
           ),
           _vm._v(
-            ",\n            右侧小眼睛，查看技术人员的详情，下面会展示分配到你的工单，查看工单详情，解决问题\n        "
+            ",\n            右侧小眼睛，查看技术人员的详情，下面会展示分配到你的工单，查看工单详情，工单评论可邮件通知用户，了解详细信息，用户的评论，将以叮叮方式通知，注意查看！\n        "
           )
         ]),
         _vm._v(" "),

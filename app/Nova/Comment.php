@@ -45,7 +45,7 @@ class Comment extends Resource
         if (auth()->id() === 1) {
             return $query;
         }
-        return $query->where('work_id', auth()->user()->works->pluck('id')->toArray());
+        return $query->whereIn('work_id', auth()->user()->works->pluck('id')->toArray());
     }
 
     /**

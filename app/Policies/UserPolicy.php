@@ -32,7 +32,7 @@ class UserPolicy
     public function create(User $user)
     {
         //
-        return $user->id === 1;
+        return false;
     }
 
     /**
@@ -45,7 +45,10 @@ class UserPolicy
     public function update(User $user, User $model)
     {
         //
-        return $user->id === 1;
+        if (auth()->id() === 1) {
+            return true;
+        }
+        return $model->id === auth()->id();
     }
 
     /**
@@ -58,7 +61,7 @@ class UserPolicy
     public function delete(User $user, User $model)
     {
         //
-        return $user->id === 1;
+        return false;
     }
 
     /**
@@ -71,7 +74,7 @@ class UserPolicy
     public function restore(User $user, User $model)
     {
         //
-        return $user->id === 1;
+        return false;
     }
 
     /**
@@ -84,6 +87,6 @@ class UserPolicy
     public function forceDelete(User $user, User $model)
     {
         //
-        return $user->id === 1;
+        return false;
     }
 }

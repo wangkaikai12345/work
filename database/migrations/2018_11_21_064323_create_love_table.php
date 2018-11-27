@@ -16,7 +16,7 @@ class CreateLoveTable extends Migration
         Schema::create('love', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',255)->comment('技术名称');
-            $table->string('title',255)->nullable()->comment('头衔');
+            $table->string('phone',255)->comment('联系电话');
             $table->timestamps();
             $table->softDeletes();
         });

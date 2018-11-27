@@ -72,10 +72,11 @@ return [
 
     'middleware' => [
         'web',
-        Authenticate::class,
+//        Authenticate::class,
         DispatchServingNovaEvent::class,
         BootTools::class,
         Authorize::class,
+        \App\Http\Middleware\LoginMiddleware::class,
     ],
 
 ];
