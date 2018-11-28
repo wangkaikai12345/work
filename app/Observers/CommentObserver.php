@@ -27,6 +27,10 @@ class CommentObserver
      */
     public function created(Comment $comment)
     {
+        if ($comment->work->status === 'complete') {
+            return;
+        }
+
         if (auth()->id() === 1) {
             // 发送邮件
             dispatch(new \App\Jobs\CommentEmail($comment));

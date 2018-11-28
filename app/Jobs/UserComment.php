@@ -43,9 +43,14 @@ class UserComment implements ShouldQueue
 
         $message= '您的客户【'.$work->user->name.'】对工单【'.$work->title.'】做了最新评论，请注意查看';
 
+        $url = config('app.url').'/admin/resources/comments/'.$this->comment->id;
+
         $data = array (
-            'msgtype' => 'text',
-            'text' => array ('content' => $message),
+            'msgtype' => 'markdown',
+            'markdown' => [
+                'title'=> '@'.$work->love->phone,
+                'text' => "#### @".$work->love->phone."  \n > ".$message."\n\n >  #### [点击查看](".$url.") "
+            ],
             'at' => [
                 'atMobiles' => [
                     $work->love->phone

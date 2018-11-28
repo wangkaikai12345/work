@@ -34,9 +34,11 @@ class SuccessEmail implements ShouldQueue
     public function handle()
     {
         $model = $this->work;
-        //
+
+        $url = config('app.url').'/admin/resources/works/'.$model->id;
+
         if ($model->status == 'allot') {
-            Mail::to($model->user)->send(new Success($model->user, $model->title));
+            Mail::to($model->user)->send(new Success($model->user, $model->title, $url));
             $model->status = 'confirm';
             $model->save();
         }

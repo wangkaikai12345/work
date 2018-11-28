@@ -14,16 +14,18 @@ class Success extends Mailable
 
     public $title;
     public $user;
+    public $url;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user, $title)
+    public function __construct(User $user, $title, $url)
     {
         //
         $this->title = $title;
         $this->user = $user;
+        $this->url = $url;
     }
 
     /**

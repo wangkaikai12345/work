@@ -51,7 +51,9 @@ class CommentEmail implements ShouldQueue
 
         $work = Work::find($model->work_id);
 
+        $url = config('app.url').'/admin/resources/comments/'.$model->id;
+
         //
-        Mail::to($work->user)->send(new WorkComment($work->user, $work->title));
+        Mail::to($work->user)->send(new WorkComment($work->user, $work->title, $url));
     }
 }
