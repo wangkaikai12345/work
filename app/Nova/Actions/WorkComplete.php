@@ -40,4 +40,20 @@ class WorkComplete extends Action
     {
         return [];
     }
+
+    /**
+     * 获取动作显示的名称。
+     *
+     * @return string
+     */
+    public function name()
+    {
+        return '工单完成';
+    }
+
+    public function uriKey()
+    {
+        return 'Work Complete';
+    }
+
 }

@@ -75,7 +75,7 @@ return [
 //        Authenticate::class,
         DispatchServingNovaEvent::class,
         BootTools::class,
-        Authorize::class,
+//        Authorize::class,
         \App\Http\Middleware\LoginMiddleware::class,
     ],
 

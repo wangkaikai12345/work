@@ -23,10 +23,15 @@ class SuccessEmail extends Action
      *
      * @return string
      */
-//    public function name()
-//    {
-//        return __('问题解决邮件通知');
-//    }
+    public function name()
+    {
+        return '工单解决邮件通知';
+    }
+
+    public function uriKey()
+    {
+        return 'Success Email';
+    }
 
     /**
      * Perform the action on the given models.
@@ -54,7 +59,7 @@ class SuccessEmail extends Action
     public function fields()
     {
         return [
-//            Text::make(__('工单问题'),'title')->rules('required'),
+
         ];
     }
 
