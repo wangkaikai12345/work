@@ -10,6 +10,12 @@ class WorkPolicy
 {
     use HandlesAuthorization;
 
+    public function viewAny()
+    {
+        if ( auth()->id() == 1 ) return true;
+        if ( auth()->user()->email && auth()->user()->email != config('work.email_tips')) return true;
+        return false;
+    }
 
     /**
      * Determine whether the user can view the work.
@@ -36,7 +42,7 @@ class WorkPolicy
     public function create(User $user)
     {
         //
-        return auth()->user()->email;
+        return $user->email;
     }
 
     /**
@@ -51,7 +57,8 @@ class WorkPolicy
         if ($user->id === 1) {
             return true;
         }
-        return $user->id === $work->user_id;
+//        return $work->user_id == auth()->id();
+        return false;
     }
 
     /**

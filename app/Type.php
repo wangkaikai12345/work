@@ -9,7 +9,6 @@ class Type extends Model
 {
 //    use SoftDeletes;
 
-    //
     public function works()
     {
         return $this->hasMany(Work::class);

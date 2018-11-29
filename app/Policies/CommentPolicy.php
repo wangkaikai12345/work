@@ -10,6 +10,12 @@ class CommentPolicy
 {
     use HandlesAuthorization;
 
+    public function viewAny()
+    {
+        if ( auth()->id() == 1 ) return true;
+        return ( auth()->user()->email && auth()->user()->email != config('work.email_tips'));
+    }
+
     /**
      * Determine whether the user can view the work.
      *

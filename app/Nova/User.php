@@ -42,7 +42,7 @@ class User extends Resource
      */
     public static function label()
     {
-        return __('用户列表');
+        return __('个人中心');
     }
 
     /**
@@ -52,7 +52,7 @@ class User extends Resource
      */
     public static function singularLabel()
     {
-        return __('用户');
+        return __('我的信息');
     }
 
 
@@ -78,10 +78,10 @@ class User extends Resource
 
             Text::make(__('用户名'),'name')
                 ->sortable()
+                ->hideWhenUpdating()
                 ->rules('required', 'max:255'),
 
             Text::make(__('邮箱'),'email')
-                ->sortable()
                 ->rules('required','email', 'max:255')
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
@@ -90,6 +90,12 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:6')
                 ->updateRules('nullable', 'string', 'min:6')
+                ->hideWhenUpdating(),
+
+            Text::make(__('手机号'),'phone')
+                ->rules('required', 'max:255')
+                ->creationRules('unique:users,phone')
+                ->updateRules('unique:users,phone,{{resourceId}}')
                 ->hideWhenUpdating(),
 
             Text::make(__('归属信息'),'options')

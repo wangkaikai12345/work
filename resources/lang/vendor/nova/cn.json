@@ -1,6 +1,8 @@
 
 {
     "Actions": "操作",
+    "Show Content": "展开",
+    "Hide Content": "隐藏",
     "Details": "详情",
     "If you did not request a password reset, no further action is required.": "如果你没有请求重置密码，请忽略。",
     "Reset Password": "重置密码",

@@ -3,6 +3,7 @@
 namespace App\Nova\Actions;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Actions\Action;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Fields\ActionFields;
@@ -23,6 +24,7 @@ class WorkComplete extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
+
         foreach ($models as $model) {
             $model->status = 'complete';
             $model->save();

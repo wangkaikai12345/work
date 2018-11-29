@@ -27,9 +27,9 @@ class CommentObserver
      */
     public function created(Comment $comment)
     {
-        if ($comment->work->status === 'complete') {
-            return;
-        }
+//        if ($comment->work->status === 'complete') {
+//            return;
+//        }
 
         if (auth()->id() === 1) {
             // 发送邮件
@@ -39,6 +39,8 @@ class CommentObserver
             // 发送钉钉提醒
             dispatch(new \App\Jobs\UserComment($comment))->onQueue('comment');
         }
+
+
 
     }
 

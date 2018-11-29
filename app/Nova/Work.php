@@ -48,7 +48,7 @@ class Work extends Resource
      */
     public static function label()
     {
-        return __('工单列表');
+        return __('我的工单');
     }
 
     /**
@@ -76,6 +76,14 @@ class Work extends Resource
         return $query->where('user_id', auth()->id());
     }
 
+    /**
+     * 关联的查询限制
+     *
+     * @param NovaRequest $request
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return $this|\Illuminate\Database\Eloquent\Builder
+     * @author 王凯
+     */
     public static function relatableQuery(NovaRequest $request, $query)
     {
         if (auth()->id() === 1) {
@@ -138,7 +146,8 @@ class Work extends Resource
                 'low' => '正常',
                 'middle' => '紧急',
                 'high' => '非常紧急',
-            ])  ->hideFromIndex()
+            ])  ->rules('required')
+                ->hideFromIndex()
                 ->hideFromDetail(),
 
             Indicator::make(__('工单程度'), 'level')
@@ -153,6 +162,7 @@ class Work extends Resource
                 ]),
 
             NovaFieldQuill::make(__('工单内容'),'content')
+                ->rules('required')
                 ->hideFromIndex(),
 
             HasMany::make(__('工单评论'), 'comments', Comment::class)
@@ -204,7 +214,11 @@ class Work extends Resource
     public function actions(Request $request)
     {
         return [
-            (new WorkComplete),
+            (new WorkComplete)->canSee(function () {
+                return auth()->id() === 1;
+            })->canRun(function () {
+                return auth()->id() === 1;
+            }),
             (new Actions\SuccessEmail)->canSee(function () {
                 return auth()->id() === 1;
             })->canRun(function () {

@@ -5,10 +5,29 @@ namespace App\Policies;
 use App\User;
 use App\Love;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\Request;
 
 class LovePolicy
 {
     use HandlesAuthorization;
+
+    /**
+     *
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
+    public function viewAny()
+    {
+        // 管理员可见
+        if ( auth()->id() == 1 ) return true;
+
+        if (in_array(Request::getRequestUri(), config('work.hide'))) {
+            return false;
+        }
+
+        return true;
+    }
 
     /**
      * Determine whether the user can view the love.

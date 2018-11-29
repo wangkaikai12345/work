@@ -45,6 +45,8 @@ class Comment extends Resource
         if (auth()->id() === 1) {
             return $query;
         }
+
+        // 设置只允许查看当前的工单的评论
         return $query->whereIn('work_id', auth()->user()->works->pluck('id')->toArray());
     }
 
@@ -55,7 +57,7 @@ class Comment extends Resource
      */
     public static function label()
     {
-        return __('工单评论');
+        return __('我的对话');
     }
 
     /**
@@ -65,7 +67,7 @@ class Comment extends Resource
      */
     public static function singularLabel()
     {
-        return __('评论');
+        return __('对话');
     }
 
     /**
@@ -88,7 +90,7 @@ class Comment extends Resource
             BelongsTo::make(__('工单'), 'work', Work::class)
                 ->rules('required'),
 
-            NovaFieldQuill::make(__('评论内容'),'content')
+            NovaFieldQuill::make(__('对话内容'),'content')
                 ->rules('required'),
         ];
     }

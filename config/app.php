@@ -108,6 +108,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'log' => 'daily',
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

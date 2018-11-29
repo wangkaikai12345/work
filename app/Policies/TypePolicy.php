@@ -10,6 +10,15 @@ class TypePolicy
 {
     use HandlesAuthorization;
 
+    public function viewAny()
+    {
+        if ( auth()->id() == 1 ) return true;
+        if (in_array(\Request::getRequestUri(), config('work.hide'))) {
+            return false;
+        }
+
+        return true;
+    }
 
     /**
      * Determine whether the user can view the type.

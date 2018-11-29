@@ -133,6 +133,7 @@ class OAuthController extends Controller
         if ($user = User::where('guid', $userRes['user']['guid'])->first()) {
             // 更新用户的校区备注信息
 
+            $user->phone = $userRes['user']['tel'];
             $user->options = $userRes['user']['first_grade'].'-'.$userRes['user']['second_grade'].'-'.$userRes['user']['thirdly_grade'].' 职务:【'.$userRes['user']['position_name'].'】 部门:【'.$userRes['user']['department'].'】';
             $user->save();
 
@@ -143,6 +144,8 @@ class OAuthController extends Controller
             $user->name = $userRes['user']['name'];
 
             $user->guid = $userRes['user']['guid'];
+
+            $user->phone = $userRes['user']['tel'];
 
             $user->options = $userRes['user']['first_grade'].'-'.$userRes['user']['second_grade'].'-'.$userRes['user']['thirdly_grade'].' 职务:【'.$userRes['user']['position_name'].'】 部门:【'.$userRes['user']['department'].'】';
 

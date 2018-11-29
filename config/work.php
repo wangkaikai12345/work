@@ -11,4 +11,16 @@ return [
     'sso_server'=>env('sso_server', 'http://l.ctoblogs.com'),  // 为授权服务器地址
 
     'app_id'        => env('APP_ID', '111111'),
+
+    'email_tips' => '请补全您的邮箱信息，使用工单系统',
+
+    'hide' => [
+        '/admin/resources/works',
+        '/admin/resources/comments',
+        '/admin/resources/love',
+        '/admin/resources/systems',
+        '/admin/resources/types',
+        '/admin/resources/users',
+        '/admin'
+    ]
 ];
