@@ -1,7 +1,7 @@
 @component('mail::message')
-# 通知消息
+# 尊敬的 {{$user->name}}
 
-您提交的【{{$title}}】问题,技术人员对工单做出了最新评论，请尽快回复！
+您提交的【{{$title}}】问题,技术人员对工单做出了最新对话，请尽快回复！
 
 @component('mail::button', ['url' => $url , 'color' => 'green'])
     点击查看

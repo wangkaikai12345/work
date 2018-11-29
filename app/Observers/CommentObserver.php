@@ -27,20 +27,22 @@ class CommentObserver
      */
     public function created(Comment $comment)
     {
-//        if ($comment->work->status === 'complete') {
-//            return;
-//        }
-
-        if (auth()->id() === 1) {
-            // 发送邮件
-            dispatch(new \App\Jobs\CommentEmail($comment));
-
-        } else {
-            // 发送钉钉提醒
-            dispatch(new \App\Jobs\UserComment($comment))->onQueue('comment');
+        if ($comment->work->status === 'complete') {
+            return;
         }
 
+//        if (auth()->id() === 1) {
+//            // 发送邮件
+//            dispatch(new \App\Jobs\CommentEmail($comment));
+//
+//        } else {
+//            // 发送钉钉提醒
+//            dispatch(new \App\Jobs\UserComment($comment))->onQueue('comment');
+//        }
 
+        auth()->user()->create_comment = $comment->id;
+        auth()->user()->create_work = $comment->work->id;
+        auth()->user()->save();
 
     }
 

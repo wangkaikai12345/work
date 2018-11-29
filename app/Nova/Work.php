@@ -18,6 +18,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Work extends Resource
 {
+    public static $group = '工单管理';
     /**
      * The model the resource corresponds to.
      *
@@ -165,7 +166,7 @@ class Work extends Resource
                 ->rules('required')
                 ->hideFromIndex(),
 
-            HasMany::make(__('工单评论'), 'comments', Comment::class)
+            HasMany::make(__('工单对话'), 'comments', Comment::class)
         ];
     }
 

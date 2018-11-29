@@ -1,7 +1,7 @@
 @component('mail::message')
-# 通知消息
+# 尊敬的 {{$user->name}}
 
-您提交的【{{$title}}】问题已经解决,请确认！并操作工单完成！
+您提交的【{{$title}}】问题已经解决,请确认!
 
 @component('mail::button', ['url' => $url , 'color' => 'green'])
     点击前往

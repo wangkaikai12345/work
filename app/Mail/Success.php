@@ -15,6 +15,8 @@ class Success extends Mailable
     public $title;
     public $user;
     public $url;
+
+    public $subject = '【工单完成】';
     /**
      * Create a new message instance.
      *

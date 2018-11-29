@@ -17,6 +17,10 @@ class SystemPolicy
             return false;
         }
 
+        if (auth()->user()->email === config('work.email_tips')) {
+            return false;
+        }
+
         return true;
     }
 

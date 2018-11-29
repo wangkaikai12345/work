@@ -10,6 +10,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Love extends Resource
 {
+    public static $group = '系统管理';
     /**
      * The model the resource corresponds to.
      *

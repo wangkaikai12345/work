@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->string('guid',32)->nullable();
             $table->text('options')->nullable();
+            $table->integer('create_comment')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

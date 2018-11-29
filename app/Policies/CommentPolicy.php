@@ -12,8 +12,17 @@ class CommentPolicy
 
     public function viewAny()
     {
-        if ( auth()->id() == 1 ) return true;
-        return ( auth()->user()->email && auth()->user()->email != config('work.email_tips'));
+//        if ( auth()->id() == 1 ) return true;
+
+        if (in_array(\Request::getRequestUri(), config('work.hide'))) {
+            return false;
+        }
+
+        if (auth()->user()->email === config('work.email_tips')) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

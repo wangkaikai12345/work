@@ -16,6 +16,9 @@ class TypePolicy
         if (in_array(\Request::getRequestUri(), config('work.hide'))) {
             return false;
         }
+        if (auth()->user()->email === config('work.email_tips')) {
+            return false;
+        }
 
         return true;
     }

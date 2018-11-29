@@ -10,6 +10,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Comment extends Resource
 {
+    public static $group = '工单管理';
     /**
      * The model the resource corresponds to.
      *

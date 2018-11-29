@@ -16,6 +16,8 @@ class WorkComment extends Mailable
     public $user;
     public $url;
 
+    public $subject = '【工单对话】';
+
     /**
      * Create a new message instance.
      *

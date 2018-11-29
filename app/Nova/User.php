@@ -12,6 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class User extends Resource
 {
+    public static $group = '工单管理';
     /**
      * The model the resource corresponds to.
      *
@@ -52,7 +53,7 @@ class User extends Resource
      */
     public static function singularLabel()
     {
-        return __('我的信息');
+        return __('个人信息');
     }
 
 
