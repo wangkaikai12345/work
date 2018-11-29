@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Comment;
 use Closure;
 use Illuminate\Support\Facades\Log;
 
@@ -31,23 +32,19 @@ class LoginMiddleware
         }
 
         $id = auth()->user()->create_work;
-        $comment_id = auth()->user()->create_comment;
-
 
         if ( $id && str_is('/nova-api/comments/*', $request->getRequestUri())) {
-            auth()->user()->create_work = 0;
-            auth()->user()->save();
 
             return redirect('/nova-api/works/'.$id);
         }
 //
-        if ($comment_id &&
+        if ($id &&
             str_is('/nova-api/comments?search=&filters=&orderBy=&orderByDirection=desc&perPage=25&trashed=&page=1&viaResource=comments&viaResourceId=*', $request->getRequestUri())
         ) {
-            auth()->user()->create_comment = 0;
+            auth()->user()->create_work = 0;
             auth()->user()->save();
 
-            return redirect('/nova-api/comments?search=&filters=&orderBy=&orderByDirection=desc&perPage=25&trashed=&page=1&viaResource=comments&viaResourceId='.$id.'&viaRelationship=comments&relationshipType=hasMany');
+            return redirect('/nova-api/comments?search=&filters=&orderBy=&orderByDirection=desc&perPage=25&trashed=&page=1&viaResource=works&viaResourceId='.$id.'&viaRelationship=comments&relationshipType=hasMany');
         }
 
         return $next($request);
