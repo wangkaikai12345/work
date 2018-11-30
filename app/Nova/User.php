@@ -78,7 +78,6 @@ class User extends Resource
             ID::make()->sortable(),
 
             Text::make(__('用户名'),'name')
-                ->sortable()
                 ->hideWhenUpdating()
                 ->rules('required', 'max:255'),
 

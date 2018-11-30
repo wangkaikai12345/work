@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Frowhy\NovaFieldQuill\NovaFieldQuill;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -81,8 +82,6 @@ class Comment extends Resource
     {
         return [
 
-            ID::make()->sortable(),
-
             BelongsTo::make(__('用户'), 'user', User::class)
                 ->rules('required')
                 ->hideWhenCreating()
@@ -93,6 +92,8 @@ class Comment extends Resource
 
             NovaFieldQuill::make(__('对话内容'),'content')
                 ->rules('required'),
+
+            DateTime::make(__('对话时间'),'created_at')->hideWhenCreating()->hideWhenUpdating()->sortable(),
         ];
     }
 

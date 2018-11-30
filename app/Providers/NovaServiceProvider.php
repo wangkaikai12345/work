@@ -76,7 +76,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
 //            new \Beyondcode\TinkerTool\Tinker(),
-            new SomeTips,
+
         ];
     }
 

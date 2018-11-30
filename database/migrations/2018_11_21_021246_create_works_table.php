@@ -23,6 +23,7 @@ class CreateWorksTable extends Migration
             $table->text('content')->comment('工单内容');
             $table->enum('status', ['unsolved', 'allot', 'confirm', 'complete'])->comment('状态');
             $table->enum('level', ['low', 'middle', 'high'])->comment('级别');
+            $table->integer('is_send')->default(0)->comment('是否通知');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -6,6 +6,7 @@ use App\Nova\Actions\WorkComplete;
 use Frowhy\NovaFieldQuill\NovaFieldQuill;
 use Inspheric\Fields\Indicator;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
@@ -161,6 +162,8 @@ class Work extends Resource
                     'middle' => 'orange',
                     'high' => 'red',
                 ]),
+
+            DateTime::make(__('创建时间'),'created_at')->hideWhenCreating()->hideWhenUpdating()->sortable(),
 
             NovaFieldQuill::make(__('工单内容'),'content')
                 ->rules('required')

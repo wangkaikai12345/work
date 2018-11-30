@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2aa3f18c357fea68a707f4aff92b720d",
+    "content-hash": "c19cc757415efbe4c5889f5e232e427a",
     "packages": [
         {
             "name": "beyondcode/nova-tinker-tool",
@@ -1703,6 +1703,53 @@
                 "random"
             ],
             "time": "2018-07-02T15:55:56+00:00"
+        },
+        {
+            "name": "peterbrinck/nova-laravel-news",
+            "version": "v0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/peterbrinck/nova-laravel-news.git",
+                "reference": "cabed4d6c2a0bc0cb2c2877438a45463461dabab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/peterbrinck/nova-laravel-news/zipball/cabed4d6c2a0bc0cb2c2877438a45463461dabab",
+                "reference": "cabed4d6c2a0bc0cb2c2877438a45463461dabab",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PeterBrinck\\NovaLaravelNews\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PeterBrinck\\NovaLaravelNews\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Adds a card to the Nova dashboard with the latest news from Laravel News",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2018-08-24T12:36:24+00:00"
         },
         {
             "name": "predis/predis",
@@ -3607,6 +3654,54 @@
                 "test"
             ],
             "time": "2016-01-20T08:20:44+00:00"
+        },
+        {
+            "name": "itainathaniel/nova-admin-notes",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itainathaniel/nova-admin-notes.git",
+                "reference": "88a0f0b9dcc24c4659b9bbbdaaf5006e82dce24e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itainathaniel/nova-admin-notes/zipball/88a0f0b9dcc24c4659b9bbbdaaf5006e82dce24e",
+                "reference": "88a0f0b9dcc24c4659b9bbbdaaf5006e82dce24e",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Itainathaniel\\AdminNotes\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Itainathaniel\\AdminNotes\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel Nova tool for saving notes on the admin panel",
+            "keywords": [
+                "laravel",
+                "notes",
+                "nova"
+            ],
+            "time": "2018-09-03T19:26:20+00:00"
         },
         {
             "name": "mockery/mockery",

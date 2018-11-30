@@ -15,5 +15,4 @@ return [
 
     'attached' => '属性“:attribute”已添加。',
     'relatable' => '属性“:attribute”与该资源无关联。',
-
 ];
