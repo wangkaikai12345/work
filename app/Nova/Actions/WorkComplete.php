@@ -50,7 +50,7 @@ class WorkComplete extends Action
      */
     public function name()
     {
-        return '工单完成';
+        return '工单解决 确认结束';
     }
 
     public function uriKey()

@@ -25,7 +25,7 @@ class SuccessEmail extends Action
      */
     public function name()
     {
-        return '工单解决邮件通知';
+        return '工单解决 邮件通知';
     }
 
     public function uriKey()

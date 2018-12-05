@@ -20,7 +20,7 @@ return [
         '/admin/resources/systems',
         '/admin/resources/types',
         '/admin/resources/users',
-        '/admin'
+        '/admin',
     ],
 
     'admin_phone' => '18810463717',

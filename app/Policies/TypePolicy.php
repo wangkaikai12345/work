@@ -13,10 +13,13 @@ class TypePolicy
     public function viewAny()
     {
         if ( auth()->id() == 1 ) return true;
-        if (in_array(\Request::getRequestUri(), config('work.hide'))) {
+        if (in_array(\Request::getRequestUri(), config('work.hide'))
+            || str_is('/admin/resources/works/*', \Request::getRequestUri())
+            || str_is('/admin/resources/comments/*', \Request::getRequestUri())
+        ) {
             return false;
         }
-        if (auth()->user()->email === config('work.email_tips')) {
+        if (auth()->user()->email_sub === config('work.email_tips')) {
             return false;
         }
 

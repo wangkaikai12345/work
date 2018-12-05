@@ -15,6 +15,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Wangkai\WorkComment\WorkComment;
 
 
 class Work extends Resource
@@ -107,7 +108,8 @@ class Work extends Resource
             ID::make()->sortable(),
 
             Text::make(__('工单标题'),'title')
-                ->rules('required', 'max:255'),
+                ->rules('required', 'max:255')
+                ->help('工单标题要求简洁 扼要！工单标题是 工单解决进度 邮件通知 的标识！'),
 
             BelongsTo::make(__('提交人'), 'user', User::class)
                 ->hideWhenCreating()
@@ -165,11 +167,19 @@ class Work extends Resource
 
             DateTime::make(__('创建时间'),'created_at')->hideWhenCreating()->hideWhenUpdating()->sortable(),
 
-            NovaFieldQuill::make(__('工单内容'),'content')
-                ->rules('required')
+//            NovaFieldQuill::make(__('工单内容'),'content')
+//                ->rules('required')
+//                ->hideFromIndex(),
+
+            Trix::make(__('工单内容'),'content')->withFiles('qiniu')->alwaysShow()->help(
+                   '注意: 工单问题的描述！拖动问题截图到此窗口！为了更快的解决您的问题，问题截图要求完整！'
+               )->rules('required')
                 ->hideFromIndex(),
 
-            HasMany::make(__('工单对话'), 'comments', Comment::class)
+            WorkComment::make(),
+
+            HasMany::make(__('对话'), 'comments', Comment::class)->hideFromDetail(),
+
         ];
     }
 
@@ -218,12 +228,12 @@ class Work extends Resource
     public function actions(Request $request)
     {
         return [
-            (new WorkComplete)->canSee(function () {
+            (new Actions\SuccessEmail)->canSee(function () {
                 return auth()->id() === 1;
             })->canRun(function () {
                 return auth()->id() === 1;
             }),
-            (new Actions\SuccessEmail)->canSee(function () {
+            (new WorkComplete)->canSee(function () {
                 return auth()->id() === 1;
             })->canRun(function () {
                 return auth()->id() === 1;

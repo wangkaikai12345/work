@@ -13,7 +13,7 @@ class WorkPolicy
     public function viewAny()
     {
         if ( auth()->id() == 1 ) return true;
-        if ( auth()->user()->email && auth()->user()->email != config('work.email_tips')) return true;
+        if ( auth()->user()->email && auth()->user()->email_sub != config('work.email_tips')) return true;
         return false;
     }
 
@@ -42,7 +42,7 @@ class WorkPolicy
     public function create(User $user)
     {
         //
-        return $user->email;
+        return true;
     }
 
     /**

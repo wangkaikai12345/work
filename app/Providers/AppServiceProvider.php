@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
         //
         Work::observe(WorkObserver::class);
         Comment::observe(CommentObserver::class);
-//        User::observe(UserObserver::class);
+        User::observe(UserObserver::class);
     }
 
     /**

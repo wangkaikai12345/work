@@ -83,6 +83,9 @@ class User extends Resource
 
             Text::make(__('邮箱'),'email')
                 ->rules('required','email', 'max:255')
+                ->withMeta(['extraAttributes' => [
+                    'placeholder' => '请补全您的邮箱信息！填写有效的邮箱地址']
+                ])
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
 

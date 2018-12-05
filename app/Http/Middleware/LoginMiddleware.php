@@ -22,9 +22,9 @@ class LoginMiddleware
             return redirect(config('work.sso_server'));
         }
 
-        if (! auth()->user()->email) {
+        if (! auth()->user()->email_sub) {
 
-            auth()->user()->email = config('work.email_tips');
+            auth()->user()->email_sub = config('work.email_tips');
 
             auth()->user()->save();
 

@@ -29,9 +29,9 @@ class WorkLevel extends Filter
     public function options(Request $request)
     {
         return [
-            '不急' => 'low',
-            '平常' => 'middle',
-            '紧急' => 'high',
+            '正常' => 'low',
+            '紧急' => 'middle',
+            '非常紧急' => 'high',
         ];
     }
 

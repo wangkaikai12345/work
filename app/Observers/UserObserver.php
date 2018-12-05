@@ -14,8 +14,10 @@ class UserObserver
      * @param  User $user
      * @return void
      */
-    public function updated(User $user)
+    public function updating(User $user)
     {
-
+        if ($user->email) {
+            $user->email_sub = $user->email;
+        }
     }
 }

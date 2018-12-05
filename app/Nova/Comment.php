@@ -7,7 +7,9 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Wangkai\WorkComment\WorkComment;
 
 class Comment extends Resource
 {
@@ -80,6 +82,10 @@ class Comment extends Resource
      */
     public function fields(Request $request)
     {
+        $noteField = Trix::make(__('对话内容'),'content')->withFiles('qiniu')->alwaysShow()->rules('required')
+            ->help('上传图片请拖动图片到此输入框！ 或者截图，粘贴到此窗口！');
+//        $noteField->showOnIndex = true;
+
         return [
 
             BelongsTo::make(__('用户'), 'user', User::class)
@@ -90,8 +96,12 @@ class Comment extends Resource
             BelongsTo::make(__('工单'), 'work', Work::class)
                 ->rules('required'),
 
-            NovaFieldQuill::make(__('对话内容'),'content')
-                ->rules('required'),
+//            NovaFieldQuill::make(__('对话内容'),'content')
+//                ->rules('required'),
+
+            $noteField,
+
+            WorkComment::make(),
 
             DateTime::make(__('对话时间'),'created_at')->hideWhenCreating()->hideWhenUpdating()->sortable(),
         ];
